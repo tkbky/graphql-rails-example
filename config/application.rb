@@ -18,7 +18,7 @@ Bundler.require(*Rails.groups)
 module GraphqlRailsExample
   class Application < Rails::Application
     config.eager_load_paths << Rails.root.join('app', 'graph', 'types')
-    # config.eager_load_paths << Rails.root.join('app', 'graph', 'fields')
+    config.eager_load_paths << Rails.root.join('app', 'graph', 'fields')
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
