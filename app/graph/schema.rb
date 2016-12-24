@@ -1,5 +1,6 @@
 Schema = GraphQL::Schema.define do
   query QueryType
+  mutation MutationType
 
   object_from_id ->(id, ctx) do
     type_name, item_id = GraphQL::Schema::UniqueWithinType.decode(id)
