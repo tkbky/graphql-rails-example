@@ -2,6 +2,8 @@ Schema = GraphQL::Schema.define do
   query QueryType
   mutation MutationType
 
+  rescue_from ActiveRecord::RecordNotFound, &:message
+
   object_from_id ->(id, ctx) do
     type_name, item_id = GraphQL::Schema::UniqueWithinType.decode(id)
     type_name.constantize.find(item_id)
